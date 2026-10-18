@@ -6,6 +6,8 @@ import Controller from './controllers/Controller.js';
 
 import universitiesModel from './models/universities-model.js';
 import studentsModel from './models/students-model.js';
+import societiesModel from './models/societies-model.js';
+import eventsModel from './models/events-model.js';
 
 // Configure express app ------------------------------
 const app = new express();
@@ -17,6 +19,8 @@ app.use(express.json());
 // Controllers ----------------------------------------
 const universitiesController = new Controller(universitiesModel, database);
 const studentsController = new Controller(studentsModel, database);
+const societiesController = new Controller(societiesModel, database);
+const eventsController = new Controller(eventsModel, database);
 
 // Endpoints ------------------------------------------
 const addCrudRoutes = (path, controller) => {
@@ -29,6 +33,8 @@ const addCrudRoutes = (path, controller) => {
 
 addCrudRoutes('universities', universitiesController);
 addCrudRoutes('students', studentsController);
+addCrudRoutes('societies', societiesController);
+addCrudRoutes('events', eventsController);
 
 // Start server ---------------------------------------
 const PORT = process.env.port || 5000;
