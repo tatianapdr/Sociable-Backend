@@ -5,6 +5,7 @@ import database from './database.js';
 import Controller from './controllers/Controller.js';
 
 import universitiesModel from './models/universities-model.js';
+import studentsModel from './models/students-model.js';
 
 // Configure express app ------------------------------
 const app = new express();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Controllers ----------------------------------------
 const universitiesController = new Controller(universitiesModel, database);
+const studentsController = new Controller(studentsModel, database);
 
 // Endpoints ------------------------------------------
 const addCrudRoutes = (path, controller) => {
@@ -26,6 +28,7 @@ const addCrudRoutes = (path, controller) => {
 };
 
 addCrudRoutes('universities', universitiesController);
+addCrudRoutes('students', studentsController);
 
 // Start server ---------------------------------------
 const PORT = process.env.port || 5000;
