@@ -36,6 +36,11 @@ addCrudRoutes('students', studentsController);
 addCrudRoutes('societies', societiesController);
 addCrudRoutes('events', eventsController);
 
+app.get('/api/societies/university/:id', (req, res) => societiesController.get(req, res, 'university'));
+app.get('/api/events/society/:id', (req, res) => eventsController.get(req, res, 'society'));
+app.get('/api/events/university/:id', (req, res) => eventsController.get(req, res, 'university'));
+app.get('/api/events/student/:id', (req, res) => eventsController.get(req, res, 'student'));
+
 // Start server ---------------------------------------
 const PORT = process.env.port || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
