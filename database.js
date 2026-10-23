@@ -9,6 +9,7 @@ const dbConfig = {
   user: 'root',
   password: '',
   namedPlaceholders: true,
+  dateStrings: true,
 };
 
 // Database connection --------------------------------
